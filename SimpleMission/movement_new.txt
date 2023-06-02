@@ -1,0 +1,167 @@
+
+
+#include "open_interface.h"
+#include "Timer.h"
+
+
+void turn_clockwise(oi_t *sensor_T, int degrees){
+    float sum=0;
+
+    if (degrees<0){
+        oi_setWheels(50, -50); // turn left (right wheel forwards)
+        while (sum > degrees) {
+            oi_update(sensor_T);
+            sum -= sensor_T->angle;
+            lcd_init();
+            lcd_printf("%f", sum);
+        }
+    }else{
+        oi_setWheels(-50, 50); // turn right (left wheel forwards)
+        while (sum < degrees) {
+            oi_update(sensor_T);
+            sum -= sensor_T->angle;
+            lcd_init();
+            lcd_printf("%f", sum);
+        }
+    }
+    oi_setWheels(0, 0);
+}
+
+void move_forward(oi_t *sensor_F, int centimeters){
+    if (centimeters>0){ // move forwards
+        oi_setWheels(150, 150);
+
+        centimeters = centimeters*10;
+        double sum=0;
+
+        while (sum < centimeters) {
+            oi_update(sensor_F);
+            sum += sensor_F->distance;
+
+                char error[10] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}
+            
+            //scan up, unless it is currently above 30 degrees, in which case it will scan down
+            int updown = 0;
+
+            //scan to -30 degrees
+            if (updown = 0){
+
+                while(ang >= -30){
+                ang--;
+                if ( (laser_dist_num<minObjDist){
+                        break;
+                    }
+                }
+                updown = 1;
+            }
+
+            //scan to 30 degrees
+            else if (updown = 1){
+
+                while(ang <= 30){
+                ang++;
+                if ( (laser_dist_num<minObjDist){
+                        break;
+                    }
+                }
+                updown = 0;
+            }
+
+            if (sensor_F->bumpLeft) {
+                return error[0]; //returns the character A showing left bumper hit
+                break;
+            }
+            else if (sensor_F->bumpRight) {
+                return error[1]; //returns the character B showing right bumper hit
+                break;
+            }
+            else if (sensor_F->bumpLeft && sensor_F->bumpRight) {
+                return error[2]; //returns the character C showing right and left bumper hit
+                break;
+            }
+            else if (sensor_F->cliffLeft) {
+                return error[3]; //returns the character D showing cliff to the left
+                break;
+            }
+            else if (sensor_F->cliffFrontLeft) {
+                return error[4]; //returns the character E showing cliff to the front left
+                break;
+            }
+            else if (sensor_F->cliffFrontRight) {
+                return error[5]; //returns the character F showing cliff to the front right
+                break;
+            }
+            else if (sensor_F->cliffRight) {
+                return error[6]; //returns the character G showing cliff to the right
+                break;
+            }
+            else if (sensor_F->cliffLeft && sensor_F->cliffFrontLeft) {
+                return error[7]; //returns the character H showing cliff to the left and front left
+                break;
+            }
+            else if (sensor_F->cliffFrontRight && sensor_F->cliffFrontLeft) {
+                return error[8]; //returns the character I showing cliff to the front right and front left
+                break;
+            }
+            else if (sensor_F->cliffRight && sensor_F->cliffFrontRight) {
+                return error[9]; //returns the character J showing cliff to the right and front right
+                break;
+            }
+            lcd_init();
+            lcd_printf("%f", sum);
+        }
+    }
+    else{ //move backwards
+        oi_setWheels(-150, -150);
+
+        centimeters = centimeters*10;
+        double sum=0;
+
+        while (sum > centimeters) {
+            oi_update(sensor_F);
+            sum += sensor_F->distance;
+            lcd_init();
+            lcd_printf("%f", sum);
+        }
+    }
+
+    oi_setWheels(0, 0); //set wheels to 0
+}
+
+void move_noBump(oi_t *sensor_F, int centimeters){
+    if (centimeters>0){ // move forwards
+        oi_setWheels(150, 150);
+
+        centimeters = centimeters*10;
+        double sum=0;
+
+        while (sum < centimeters) {
+            oi_update(sensor_F);
+            sum += sensor_F->distance;
+            lcd_init();
+            lcd_printf("%f", sum);
+        }
+    }
+    else{ //move backwards
+        oi_setWheels(-150, -150);
+
+        centimeters = centimeters*10;
+        double sum=0;
+
+        while (sum > centimeters) {
+            oi_update(sensor_F);
+            sum += sensor_F->distance;
+            lcd_init();
+            lcd_printf("%f", sum);
+        }
+    }
+
+    oi_setWheels(0, 0); //set wheels to 0
+}
+
+
+
+
+
+
+

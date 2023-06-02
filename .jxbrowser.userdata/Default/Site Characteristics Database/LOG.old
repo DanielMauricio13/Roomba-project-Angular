@@ -1,0 +1,5 @@
+2022/12/06-16:42:28.589 1cf0 Log #3: 2 ops saved to Table #4 OK
+2022/12/06-16:42:28.610 1cf0 Archiving U:\288_lab\final_proj2\288_s6-4_labs\.jxbrowser.userdata\Default\Site Characteristics Database/000003.log: OK
+2022/12/06-16:42:28.611 1cf0 Table #4: 2 entries OK
+2022/12/06-16:42:28.632 1cf0 Archiving U:\288_lab\final_proj2\288_s6-4_labs\.jxbrowser.userdata\Default\Site Characteristics Database/MANIFEST-000001: OK
+2022/12/06-16:42:28.700 1cf0 **** Repaired leveldb U:\288_lab\final_proj2\288_s6-4_labs\.jxbrowser.userdata\Default\Site Characteristics Database; recovered 1 files; 191 bytes. Some data may have been lost. ****
