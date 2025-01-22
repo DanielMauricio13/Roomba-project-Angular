@@ -1,1 +1,1 @@
-file:///Users/danielpinilla/Downloads/288%20project%20proposal%20(1).pdf
+[288 project proposal (1).pdf](https://github.com/user-attachments/files/18512734/288.project.proposal.1.pdf)
